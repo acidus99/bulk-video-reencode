@@ -37,19 +37,19 @@ brew install rename
 
 ## Scripts
 
-###convert-avi.sh
+### convert-avi.sh
 
 This converts all `*.avi` videos in a directory. For my video collection, all the `*.avi` files were using a collection of older video codecs (Divx, xvid, etc), and primarily MP3 as the audio codec. This script just blindly reencodes the videos in the directory into MP4 containers, with H.264 video and AAC audio, using `ffmpeg`. This also sets the title meta data of the MP4 file.
 
-###convert-mkv.sh
+### convert-mkv.sh
 
 This converts all `*.mkv` videos in a directory. For my collection, all the MKV files were using  H.264 as the video codec. They had AAC or MP3 as the audio codec. This script probes each video to determine the audio codec. If we are dealing with a MKV/H.264/AAC file, it simple remuxes those streams into an MP4 container since nothing needs to be reencoded, preserving quality. If we are dealing with a MKV/H.264/MP3 file, we copy the video but reencode the audio to generate a MP4/H.264/AAC file. This also sets the title meta data of the MP4 file.
 
-###reset-meta.sh
+### reset-meta.sh
 
 This script loops over all the MP4 videos in a directory, removes all the meta data, and set the title meta data based on the filename. I used this to clear out the conflicting, incorrect, or non-standard meta data that often appears in videos from various sources.
 
-###all-encodes.sh
+### all-encodes.sh
 This script is just a master script. It uses `reset-meta.sh`, `concert-avi.sh` and `convert-mkv.sh` to process an entire directory of videos.
 
 
@@ -58,11 +58,11 @@ This script is just a master script. It uses `reset-meta.sh`, `concert-avi.sh` a
 This script loops over all the video files in a directory, printing the filename, and the number of video and audio streams inside. I used this to quickly find any files with extra audio tracks that I might want to preserve or rip out to reduce size (for example, [the Harmy Despecialized Editions of Star Wars](https://en.wikipedia.org/wiki/Harmy%27s_Despecialized_Edition))
 
 
-###ident-vid.sh
+### ident-vid.sh
 
 This script loops over all the video files in a directory, printing the filename, and the video and audio codecs used. I primarily used this to verify that the MKV files I was dealing with were all H.264, so I didn't have to reencode the video streams.
 
-###rename-tv.sh
+### rename-tv.sh
 
 This script uses `tvnamer` and `rename` to rename video filenames into the format `Show Name - SxxExx - Title of Episode.mkv`.
 
@@ -71,13 +71,13 @@ This script uses `tvnamer` and `rename` to rename video filenames into the forma
 
 At a high level, the process I used was to first normalize the filenames of the videos into a common format. Then my convert scripts would do the proper remux or reencoding, strip out the old meta data, and set new meta data based on that normalized filename.
 
-###Movies
+### Movies
 
 Converting movies was very straight forward. With few exceptions each movie is in one file, so it was just a matter of making sure the file was named properly. Software life Plex uses the year the movie was release to help disambiguate files. I got everything into the format of `Movie Name (Release Year) [Resolution].mp4`, and used `[SD]` for Standard Def and DVD Rips, and either `[1080p]` or `[720p]` where appropriate for Blu Ray Rips.
 
 All the movies were all in the same directory, so once everything was named properly, I simply used the `all-encodes.sh` script to kick everything off, and waited several days while `ffmpeg` did its thing.
 
-###TV Shows
+### TV Shows
 
 TV Shows were more complicated for 2 reasons. First, the filenames of the actual video files were so diverse and in some cases wrong. Second, unlike the Movies, the TV show collections was already organized into multiple folders that looks like this:
 
