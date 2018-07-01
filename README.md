@@ -53,7 +53,7 @@ This script loops over all the MP4 videos in a directory, removes all the meta d
 This script is just a master script. It uses `reset-meta.sh`, `concert-avi.sh` and `convert-mkv.sh` to process an entire directory of videos.
 
 
-###count-streams.sh
+### count-streams.sh
 
 This script loops over all the video files in a directory, printing the filename, and the number of video and audio streams inside. I used this to quickly find any files with extra audio tracks that I might want to preserve or rip out to reduce size (for example, [the Harmy Despecialized Editions of Star Wars](https://en.wikipedia.org/wiki/Harmy%27s_Despecialized_Edition))
 
