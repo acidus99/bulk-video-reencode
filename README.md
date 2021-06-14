@@ -67,7 +67,7 @@ This script loops over all the video files in a directory, printing the filename
 This script uses `tvnamer` and `rename` to rename video filenames into the format `Show Name - SxxExx - Title of Episode.mkv`.
 
 
-## How I used this scripts
+## How I used these scripts
 
 At a high level, the process I used was to first normalize the filenames of the videos into a common format. Then my convert scripts would do the proper remux or reencoding, strip out the old meta data, and set new meta data based on that normalized filename.
 
