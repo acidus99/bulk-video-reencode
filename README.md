@@ -73,7 +73,7 @@ At a high level, the process I used was to first normalize the filenames of the 
 
 ### Movies
 
-Converting movies was very straight forward. With few exceptions each movie is in one file, so it was just a matter of making sure the file was named properly. Software life Plex uses the year the movie was release to help disambiguate files. I got everything into the format of `Movie Name (Release Year) [Resolution].mp4`, and used `[SD]` for Standard Def and DVD Rips, and either `[1080p]` or `[720p]` where appropriate for Blu Ray Rips.
+Converting movies was very straight forward. With few exceptions each movie is in one file, so it was just a matter of making sure the file was named properly. Software like Plex uses the year the movie was release to help disambiguate files. I got everything into the format of `Movie Name (Release Year) [Resolution].mp4`, and used `[SD]` for Standard Def and DVD Rips, and either `[1080p]` or `[720p]` where appropriate for Blu Ray Rips.
 
 All the movies were all in the same directory, so once everything was named properly, I simply used the `all-encodes.sh` script to kick everything off, and waited several days while `ffmpeg` did its thing.
 
@@ -98,7 +98,7 @@ For each TV Show:
 
 2. I used `rename-tv.sh` in each `Season `directory to rename all the filenames into the format `Show Name - SxxExx - Title of Episode.mkv` (or whatever video extension).
 
-3. I used `prep-folder.sh` which pulled all files the TV shows for into the root `Show Name/` directory. Now you have a single folder for a show, with a ton of video files in it, all potentially different types and extensions.
+3. I used `prep-folder.sh` which pulled all the files for a TV shows into the root `Show Name/` directory. Now you have a single folder for a show, with a ton of video files in it, all potentially different types and extensions.
 
 4. I used the `all-convert.sh` on the main `Show Name/` folder. This converts all of the videos. When done you have a directory full of MP4/H.264/AAC files, with proper meta data.
 
